@@ -5,6 +5,8 @@ import Pet.Adoption.Platform.Project.Repositories.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PetServiceImpl implements PetService {
     @Autowired
@@ -12,5 +14,10 @@ public class PetServiceImpl implements PetService {
     @Override
     public void addPet(Pet pet) {
         petRepository.save(pet);
+    }
+
+    @Override
+    public List<Pet> findAll() {
+        return petRepository.findAll();
     }
 }

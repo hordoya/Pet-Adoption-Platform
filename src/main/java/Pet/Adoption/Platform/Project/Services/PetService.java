@@ -6,4 +6,6 @@ import java.util.List;
 @Service
 public interface PetService {
     void addPet(Pet pet);
+    List<Pet> findAll();
+
 }

@@ -22,14 +22,32 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	// basic starter including tomcat as an embedded web server
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// compile time only - generating setters, getters, other utility methods
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+
+	// added manually
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'com.h2database:h2'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//	implementation 'org.springframework.boot:spring-boot-starter-security'
+//	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+//	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+//	implementation 'com.google.cloud:spring-cloud-gcp-starter:5.0.0'
+//	implementation 'com.google.appengine:appengine-api-1.0-sdk:+'
+//	implementation 'com.google.appengine:appengine:+'
+//	implementation 'com.google.cloud:spring-cloud-gcp-dependencies:4.5.1'
+//	implementation 'com.google.cloud:spring-cloud-gcp-starter-sql-postgresql:4.5.1'
+//	implementation 'com.google.cloud:google-cloud-secretmanager:2.30.0'
+
 }
 
 tasks.named('test') {

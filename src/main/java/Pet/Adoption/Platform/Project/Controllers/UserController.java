@@ -6,11 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 
 public class UserController {
     @Autowired
@@ -18,11 +19,20 @@ public class UserController {
     @GetMapping("/user")
     public List<User> getAllUsers(){
 
-        return this.userService.getAllUsers();
+        return userService.getAllUsers();
+    }
+    @GetMapping("/login")
+    public String viewLogin(Model model) {
+        return "login";
     }
     @PostMapping("/register")
-    public ResponseEntity<String> createUser(@RequestBody User user){
+    public String createUser(@ModelAttribute("user") User user){
         this.userService.createUser(user);
-        return new ResponseEntity<>("user added Successfully.", HttpStatus.OK);
+        return "redirect:/login";
+    }
+    @GetMapping("/register")
+    public String viewRegister(Model model) {
+        model.addAttribute("user", new User());
+        return "/Registration";
     }
 }
