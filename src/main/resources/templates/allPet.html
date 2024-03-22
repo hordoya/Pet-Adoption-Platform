@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .pet-info {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .pet-info:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .pet-info h2 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .pet-info p {
+            color: #666;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Pet Details</h1>
+    <div class="pet-info" th:each="pet : ${pets}">
+        <h2 th:text="${pet.name}"></h2>
+        <p th:text="'Breed: ' + ${pet.breed}"></p>
+        <p th:text="'Gender: ' + ${pet.gender}"></p>
+        <p th:text="'Age: ' + ${pet.age}"></p>
+        <p th:text="'Description: ' + ${pet.description}"></p>
+    </div>
+</div>
+</body>
+</html>
