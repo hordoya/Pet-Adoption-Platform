@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+<h1>Welcome to Admin Dashboard</h1>
+
+<h2>Pet Listings</h2>
+<ul>
+    <!-- Loop through pet listings -->
+    <li>Pet Name - <button onclick="approvePetListing(petId)">Approve</button></li>
+</ul>
+
+<h2>User Accounts</h2>
+<ul>
+    <!-- Loop through user accounts -->
+    <li>User Name - <button onclick="disableUserAccount(userId)">Disable</button></li>
+</ul>
+
+<h2>Adoption Requests</h2>
+<ul>
+    <!-- Loop through adoption requests -->
+    <li>Request ID - Status - <button onclick="reviewAdoptionRequest(requestId)">Review</button></li>
+</ul>
+
+<script>
+    function approvePetListing(petId) {
+        // Send AJAX request to approve pet listing
+    }
+
+    function disableUserAccount(userId) {
+        // Send AJAX request to disable user account
+    }
+
+    function reviewAdoptionRequest(requestId) {
+        // Send AJAX request to review adoption request
+    }
+</script>
+</body>
+</html>

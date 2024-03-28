@@ -20,5 +20,6 @@ public class Pet {
     private Gender gender;
     private int age;
     private String description;
+    private boolean adopted;
 
 }

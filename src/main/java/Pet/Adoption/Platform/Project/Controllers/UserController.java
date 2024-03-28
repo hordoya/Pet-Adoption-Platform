@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -34,5 +35,23 @@ public class UserController {
     public String viewRegister(Model model) {
         model.addAttribute("user", new User());
         return "/Registration";
+    }
+    @PostMapping("/login")
+    public String login(RedirectAttributes redirectAttributes) {
+        // Perform any necessary login logic here
+
+        // Redirect to home page after successful login
+        redirectAttributes.addFlashAttribute("message", "Login successful!");
+        return "redirect:/home"; // Assuming "/" is your home page URL mapping
+    }
+    @GetMapping("/home")
+    public String viewHome(Model model) {
+//        List<Bottle> bottles = bottleRepository.findAll();
+//        model.addAttribute("bottles", bottles);
+//
+//        List<Crate> crates = crateService.getAllCrates();
+//        model.addAttribute("crates", crates);
+
+        return "home";
     }
 }

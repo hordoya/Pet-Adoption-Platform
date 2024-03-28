@@ -87,5 +87,6 @@ public class User {
     private String email;
     private String password;
     private LocalDate birthday;
+    private boolean enabled;
 
 }

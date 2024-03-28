@@ -12,6 +12,7 @@ public interface AdoptionRequestService {
 
 
      List<AdoptionRequest> getAllAdoption() ;
+
 //    void updateAdoptionRequest(AdoptionRequest adoptionRequest);
 
     boolean deleteAdoptionRequest(Long id);

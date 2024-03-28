@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adopted Pets</title>
+    <link th:href="@{/css/adopted-pets.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Adopted Pets</h1>
+    <div th:if="${not #lists.isEmpty(adoptedPets)}">
+        <div class="pet-info" th:each="pet : ${adoptedPets}">
+            <h2 th:text="${pet.name}"></h2>
+            <p th:text="'Breed: ' + ${pet.breed}"></p>
+            <p th:text="'Gender: ' + ${pet.gender}"></p>
+            <p th:text="'Age: ' + ${pet.age}"></p>
+            <p th:text="'Description: ' + ${pet.description}"></p>
+        </div>
+    </div>
+    <div th:if="${#lists.isEmpty(adoptedPets)}">
+        <p>No adopted pets found.</p>
+    </div>
+</div>
+</body>
+</html>

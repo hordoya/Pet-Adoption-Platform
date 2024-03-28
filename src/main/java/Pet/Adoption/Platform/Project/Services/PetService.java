@@ -7,5 +7,9 @@ import java.util.List;
 public interface PetService {
     void addPet(Pet pet);
     List<Pet> findAll();
+    Boolean deletePetById(Long id);
+    Pet findPetById(Long id);
+    void movePetToAdopted(Long petId);
+    List<Pet> getAllAdoptedPets();
 
 }

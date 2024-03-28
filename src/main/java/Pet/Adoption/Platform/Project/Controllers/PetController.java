@@ -26,7 +26,7 @@ public class PetController {
     @PostMapping("/pet/addPet")
     public String createPet(@ModelAttribute("pet") Pet pet){
         petService.addPet(pet);
-        return "redirect:/login";
+        return "redirect:/allPet";
     }
     @GetMapping("/pet/addPet")
     public String viewRegister(Model model) {
@@ -40,5 +40,22 @@ public class PetController {
         model.addAttribute("pets", pets);
         return "allPet";
     }
+    @PostMapping("/pet/delete/{itemId}")
+    public String deleteCartItem(@PathVariable Long itemId) {
+        petService.deletePetById(itemId);
+        return "redirect:/allPet";
+    }
 
+    @PostMapping("/pet/addToAdapt/{itemId}")
+    public String adoptPet(@PathVariable Long itemId) {
+        // Logic to move the pet with given petId to the adopted pets list
+        petService.movePetToAdopted(itemId);
+        return "redirect:/adopted-pets";
+    }
+
+    @GetMapping("/adopted-pets")
+    public String showAdoptedPets(Model model) {
+        model.addAttribute("adoptedPets", petService.getAllAdoptedPets());
+        return "adopted-pets";
+    }
 }

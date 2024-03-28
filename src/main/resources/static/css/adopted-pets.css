@@ -1,0 +1,41 @@
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .pet-info {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .pet-info:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .pet-info h2 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .pet-info p {
+            color: #666;
+            margin: 5px 0;
+        }

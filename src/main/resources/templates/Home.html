@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pet Adoption Platform</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add your custom CSS styles here -->
+    <link th:href="@{/css/Home.css}" rel="stylesheet">
+    <th:block th:insert="fragments/header"/> <!-- Insertion tag for the header fragment -->
+</head>
+<body>
+
+<div class="hero-section">
+
+    <div>
+        <h1>Welcome to Pet Adoption Platform</h1>
+        <p>Find Your Perfect Companion Today</p>
+        <a href="/allPet" class="btn btn-primary btn-lg">Start Browsing Pets</a>
+    </div>
+</div>
+
+<!-- Other sections like search and filter, featured pets, how it works, testimonials, footer, etc. go here -->
+
+<footer>
+    <!-- Add your footer content here -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p>Contact Information: support@petadoptionplatform.com</p>
+            </div>
+            <div class="col-md-6">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                    <li class="list-inline-item"><a href="#">Terms of Service</a></li>
+                    <!-- Add links to your social media profiles here -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Add your custom JavaScript code here -->
+</body>
+</html>

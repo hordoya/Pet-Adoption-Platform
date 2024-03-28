@@ -1,0 +1,21 @@
+
+        /* Add your custom CSS styles here */
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .hero-section {
+            background-image: url('path_to_your_image.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 500px; /* Adjust height as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        .hero-section h1,
+        .hero-section p {
+            color: black; /* Set the text color to black */
+        }
