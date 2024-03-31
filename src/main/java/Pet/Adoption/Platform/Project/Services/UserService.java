@@ -9,5 +9,6 @@ public interface UserService {
     List<User> getAllUsers();
     void createUser(User user);
     void disableUserAccount(Long userId);
+    User getUserByname(String name);
 
 }

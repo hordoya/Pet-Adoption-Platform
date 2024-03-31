@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -27,8 +28,22 @@ public class UserController {
         return "login";
     }
     @PostMapping("/register")
-    public String createUser(@ModelAttribute("user") User user){
-        this.userService.createUser(user);
+    public String createUser(@ModelAttribute("user") User user, BindingResult bindingResult, RedirectAttributes redirectAttributes){
+//        this.userService.createUser(user);
+//        return "redirect:/login";
+        if (bindingResult.hasErrors()) {
+            return "/Registration";
+        }
+
+        User existingUser = userService.getUserByname(user.getName());
+        if (existingUser != null) {
+//            System.out.println(existingUser.getName());
+            redirectAttributes.addFlashAttribute("message", "Username already exists.");
+            return "redirect:/Registration";
+        }
+
+        userService.createUser(user);
+        redirectAttributes.addFlashAttribute("message", "User successfully registered!");
         return "redirect:/login";
     }
     @GetMapping("/register")
@@ -36,21 +51,10 @@ public class UserController {
         model.addAttribute("user", new User());
         return "/Registration";
     }
-    @PostMapping("/login")
-    public String login(RedirectAttributes redirectAttributes) {
-        // Perform any necessary login logic here
 
-        // Redirect to home page after successful login
-        redirectAttributes.addFlashAttribute("message", "Login successful!");
-        return "redirect:/home"; // Assuming "/" is your home page URL mapping
-    }
     @GetMapping("/home")
     public String viewHome(Model model) {
-//        List<Bottle> bottles = bottleRepository.findAll();
-//        model.addAttribute("bottles", bottles);
-//
-//        List<Crate> crates = crateService.getAllCrates();
-//        model.addAttribute("crates", crates);
+
 
         return "home";
     }
